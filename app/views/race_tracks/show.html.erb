@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @race_track.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @race_track.description %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @race_track.country %>
+</p>
+
+<%= link_to 'Edit', edit_race_track_path(@race_track) %> |
+<%= link_to 'Back', race_tracks_path %>

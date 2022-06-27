@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @league_race.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @league_race.description %>
+</p>
+
+<p>
+  <strong>Race track:</strong>
+  <%= @league_race.race_track_id %>
+</p>
+
+<p>
+  <strong>League:</strong>
+  <%= @league_race.league_id %>
+</p>
+
+<%= link_to 'Edit', edit_league_race_path(@league_race) %> |
+<%= link_to 'Back', league_races_path %>
