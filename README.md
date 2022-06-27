@@ -6,8 +6,15 @@ Versión 0.1
 
 Usuarios podrán:
 
-    Gestionar Sistemas de Puntajes (Por detallar)
-    Gestionar Ligas y sus Eventos (Por detallar)
+    # Gestionar Sistemas de Puntajes:
+    - Se debe crear al menos un sistema de puntaje, que a su vez debe tener varias posiciones y puntos. (Esto nos permitirá facilitar cálculos y estadísticas en las ligas y eventos).
+
+    # Gestionar Ligas y sus Eventos:
+    - Ya se pueden crear Pistas de carreras, Temporadas de liga y Eventos de liga. Una temporada de liga debe tener un Sistema de puntuación asociado. Un Evento de liga debe estar asociado a una Temporada de liga y a una Pista de carrera.
+    
+    ## Pendiente
+    - Se deben crear usuarios para inscribir en temporadas de liga y eventos
+    - Se deben crear las tablas de puntaje para liga y eventos.
 
 Versión 0.2
 
