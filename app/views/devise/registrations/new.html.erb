@@ -8,6 +8,21 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email", class: "form-control mb-2" }%>
+    <%= f.input :name,
+                label: 'Nombre',
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "nombre", class: "form-control mb-2" }%>
+    <%= f.input :lastname,
+                label: 'Apellido',
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "apellido", class: "form-control mb-2" }%>
+    <%= f.input :gamer_id,
+                label: 'id de jugador',
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "id de jugador", class: "form-control mb-2" }%>
     <%= f.input :password,
                 label: 'Crea tu contraseña',
                 required: true,
