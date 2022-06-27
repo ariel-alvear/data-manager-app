@@ -8,6 +8,7 @@ class ScoreSystemsController < ApplicationController
 
   # GET /score_systems/1 or /score_systems/1.json
   def show
+    @points_for_positions = PointsForPosition.where(score_system_id: params[:id])
   end
 
   # GET /score_systems/new

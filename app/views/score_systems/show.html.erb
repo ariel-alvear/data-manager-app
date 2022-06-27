@@ -10,5 +10,14 @@
   <%= @score_system.description %>
 </p>
 
+<% @points_for_positions.each do |position| %>
+  <p>
+    <strong><%= position.name %>:</strong>
+    <%= position.position %>
+    <strong>Points</strong>
+    <%= position.points %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_score_system_path(@score_system) %> |
 <%= link_to 'Back', score_systems_path %>
