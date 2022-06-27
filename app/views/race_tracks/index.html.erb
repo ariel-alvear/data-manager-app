@@ -1,31 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Race Tracks</h1>
+<h1>Pistas de Carreras</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Country</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @race_tracks.each do |track| %>
+  <div class="card col-md-4">
+    <div class="card-body">
+      <h4 class="card-title"><%= track.name.capitalize %></h4>
+      <p class="card-text">Descripción: <%= track.description %></p>
+      <p class="card-text">País: <strong><%= track.country %></strong></p>
+      <a href="<%= race_track_path(track.id) %>" class="btn btn-dark">Ver más</a>
+    </div>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @race_tracks.each do |race_track| %>
-      <tr>
-        <td><%= race_track.name %></td>
-        <td><%= race_track.description %></td>
-        <td><%= race_track.country %></td>
-        <td><%= link_to 'Show', race_track %></td>
-        <td><%= link_to 'Edit', edit_race_track_path(race_track) %></td>
-        <td><%= link_to 'Destroy', race_track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Race Track', new_race_track_path %>
+<%= link_to 'Crear nueva pista', new_race_track_path %>

@@ -10,26 +10,26 @@
       </ul>
     </div>
   <% end %>
+  <div class="col-md-4">
+    <div class="field">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="field">
+      <%= form.label :description, class: 'form-label' %>
+      <%= form.text_area :description, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <h4>Positions and points</h4>
+  <h4>Posiciones y puntos</h4>
   <%= form.fields_for :points_for_positions do |points_for_position| %>
     <%= render 'points_for_position_fields', f: points_for_position %>
   <% end %>
 
   <div class="link">
-    <%= link_to_add_association "Add another position", form, :points_for_positions %>
+    <%= link_to_add_association "Agregar otra posición", form, :points_for_positions %>
   </div>
   <div class="actions">
-    <%= form.button :submit %>
+    <%= form.button :submit, 'Crear nuevo sistema de puntaje', class: "btn btn-primary" %>
   </div>
 <% end %>
