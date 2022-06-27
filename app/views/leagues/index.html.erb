@@ -3,7 +3,7 @@
 <h1>Temporadas de liga</h1>
 
 <% @leagues.each do |league| %>
-  <div class="card col-md-4">
+  <div class="card col-md-4 mt-2">
     <div class="card-body">
       <h4 class="card-title"><%= league.name.capitalize %></h4>
       <p class="card-text">Descripción: <%= league.description %></p>
@@ -14,3 +14,5 @@
     </div>
   </div>
 <% end %>
+
+<%= link_to 'Crear nueva temporada de liga', new_league_path %>

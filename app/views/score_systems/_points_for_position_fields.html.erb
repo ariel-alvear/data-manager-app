@@ -1,8 +1,8 @@
 <div class="nested-fields">
-  <div class="field">
-    <%= f.input :name %>
-    <%= f.input :position %>
-    <%= f.input :points %>
-    <%= link_to_remove_association "Remove position", f %>
+  <div class="field col-md-4">
+    <%= f.input :name, class: 'form-control' %>
+    <%= f.input :position, class: 'form-control' %>
+    <%= f.input :points, class: 'form-control' %>
+    <%= link_to_remove_association "Quitar posición", f %>
   </div>
 </div>
