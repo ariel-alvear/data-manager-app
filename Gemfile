@@ -60,3 +60,6 @@ gem 'simple_form'
 
 # For nested forms
 gem "cocoon"
+
+# Prevent dangerous migrations
+gem "strong_migrations"

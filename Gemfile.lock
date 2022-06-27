@@ -178,6 +178,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    strong_migrations (1.2.0)
+      activerecord (>= 5.2)
     thor (1.2.1)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -225,6 +227,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   spring
+  strong_migrations
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
