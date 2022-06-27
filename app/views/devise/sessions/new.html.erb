@@ -1,0 +1,24 @@
+<h2>Iniciar Sesión</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs col-md-4">
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email", class: 'form-control mb-2' } %>
+    <%= f.input :password,
+                label: 'Contraseña',
+                required: false,
+                input_html: { autocomplete: "current-password", class: 'form-control mb-2' } %>
+    <%= f.input :remember_me,
+                label: 'Recordar usuario',
+                input_html: { class: 'mb-2' },
+                as: :boolean if devise_mapping.rememberable? %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Iniciar Sesión", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
