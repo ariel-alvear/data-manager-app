@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Points For Positions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Points</th>
+      <th>Score system</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @points_for_positions.each do |points_for_position| %>
+      <tr>
+        <td><%= points_for_position.name %></td>
+        <td><%= points_for_position.position %></td>
+        <td><%= points_for_position.points %></td>
+        <td><%= points_for_position.score_system_id %></td>
+        <td><%= link_to 'Show', points_for_position %></td>
+        <td><%= link_to 'Edit', edit_points_for_position_path(points_for_position) %></td>
+        <td><%= link_to 'Destroy', points_for_position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Points For Position', new_points_for_position_path %>

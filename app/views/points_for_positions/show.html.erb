@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @points_for_position.name %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @points_for_position.position %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @points_for_position.points %>
+</p>
+
+<p>
+  <strong>Score system:</strong>
+  <%= @points_for_position.score_system_id %>
+</p>
+
+<%= link_to 'Edit', edit_points_for_position_path(@points_for_position) %> |
+<%= link_to 'Back', points_for_positions_path %>

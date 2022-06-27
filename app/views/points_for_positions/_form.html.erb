@@ -1,0 +1,37 @@
+<%= form_with(model: points_for_position) do |form| %>
+  <% if points_for_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(points_for_position.errors.count, "error") %> prohibited this points_for_position from being saved:</h2>
+
+      <ul>
+        <% points_for_position.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :points %>
+    <%= form.number_field :points %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score_system_id %>
+    <%= form.text_field :score_system_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

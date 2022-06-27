@@ -1,0 +1,35 @@
+<%= simple_form_for @score_system do |form| %>
+  <% if score_system.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(score_system.errors.count, "error") %> prohibited this score_system from being saved:</h2>
+
+      <ul>
+        <% score_system.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <h4>Positions and points</h4>
+  <%= form.fields_for :points_for_positions do |points_for_position| %>
+    <%= render 'points_for_position_fields', f: points_for_position %>
+  <% end %>
+
+  <div class="link">
+    <%= link_to_add_association "Add another position", form, :points_for_positions %>
+  </div>
+  <div class="actions">
+    <%= form.button :submit %>
+  </div>
+<% end %>
