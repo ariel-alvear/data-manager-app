@@ -1,5 +1,8 @@
 README
 
+# Descripción General 
+(Para montar la app en local las instrucciones están luego de esta descripción)
+
 Existe un grupo de personas que día a día va creciendo más y más. Personas que a través de los videojuegos han logrado crear distintas comunidades a partir de competencias multijugador. Esta app busca pemirtir gestionar ligas y competencias de forma más fácil y rápida, generando una mayor y mejor interacción entre organizadores y jugadores.
 Hitos a cumplir
 Versión 0.1
@@ -59,3 +62,11 @@ Versión 0.6
 Externos podrán:
 
     Votar por el Jugador de la jornada (Por detallar)
+
+# Setup
+Para montar la app se debe:
+1) Clonar repositorio
+2) Crear la base de datos y correr migraciones de modelos `rails db:create db:migrate`
+3) Crear datos para probar la aplicación `rails seed:run_all_seeds`, correr este comando hasta que ya no se creen nuevos datos. (Una mejora para esto podría ser que las tareas de `lib/tasks/seeds` se corran en un orden específico)
+4) Levantar el servidor `rails s`
+5) Ingresar con cualquier usuario del archivo `lib/tasks/seeds/04_seed_users.rake`
