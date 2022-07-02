@@ -3,7 +3,8 @@ class LeagueRacesController < ApplicationController
 
   # GET /league_races or /league_races.json
   def index
-    @league_races = LeagueRace.all
+    @league = League.find(params["league_id"])
+    @league_races = LeagueRace.from_league(@league.id)
   end
 
   # GET /league_races/1 or /league_races/1.json

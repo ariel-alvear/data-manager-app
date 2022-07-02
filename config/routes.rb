@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :race_participants
   devise_for :users
   resources :league_races
   resources :race_tracks

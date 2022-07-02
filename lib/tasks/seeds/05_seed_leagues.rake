@@ -7,7 +7,12 @@ namespace :seed do
         name: 'Temporada 1 División 1 test',
         description: 'Liga falsa generada para probar la app',
         score_system_id: 1,
-      }])
+      },
+      {
+        name: 'Temporada 1 División 2 test',
+        description: 'Otra liga falsa generada para probar la app',
+        score_system_id: 1,
+      },])
 
       p "Created #{League.count} leagues"
     else
