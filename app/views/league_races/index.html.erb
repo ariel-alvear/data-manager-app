@@ -4,8 +4,10 @@
   <h1>Carreras de <strong><%= @league&.name %></strong></h1>
 </div>
 
+<%= link_to 'Crear nueva carrera', new_league_race_path(league_id: @league.id) %>
+<br>
 <% @league_races.each do |league_race| %>
-  <div class="card col-md-4 mt-2">
+  <div class="card col-md-6 mt-2">
     <div class="card-body">
       <h4 class="card-title"><%= league_race.capitalized_name %></h4>
       <p class="card-text">Descripción: <%= league_race.description %></p>
@@ -16,4 +18,3 @@
   </div>
 <% end %>
 
-<%= link_to 'Crear nueva carrera', new_league_race_path %>

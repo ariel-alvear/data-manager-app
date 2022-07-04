@@ -21,4 +21,4 @@
 </p>
 
 <%= link_to 'Edit', edit_league_race_path(@league_race) %> |
-<%= link_to 'Back', league_races_path %>
+<%= link_to 'Back', league_races_path(league_id: @league_race.league.id) %>
