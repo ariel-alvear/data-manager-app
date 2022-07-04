@@ -5,12 +5,15 @@
 <% @leagues.each do |league| %>
   <div class="card col-md-4 mt-2">
     <div class="card-body">
-      <h4 class="card-title"><%= league.name.capitalize %></h4>
+      <h4 class="card-title"><%= league.capitalized_name %></h4>
       <p class="card-text">Descripción: <%= league.description %></p>
       <a href="<%= score_system_path(league.score_system_id)%>">Sistema de puntaje</a>
       <br>
       <br>
-      <a href="<%= league_path(league.id) %>" class="btn btn-dark">Ver tabla de resultados</a>
+      <a href="<%= league_races_path(league_id: league.id) %>" class="btn btn-dark">Ver carreras de liga</a>
+      <br>
+      <br>
+      <a href="" class="btn btn-dark">Ver tabla de resultados</a>
     </div>
   </div>
 <% end %>

@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @score_system.name %>
-</p>
+<h1>Sistema de puntaje: <strong><%= @score_system.name %></strong></h1>
+<p><%= @score_system.description %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @score_system.description %>
-</p>
+<div class='col-md-7'>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre Posición</th>
+        <th scope="col">Posición</th>
+        <th scope="col">Puntaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @points_for_positions.each do |position| %>
+        <tr>
+          <td><%= position.name %></td>
+          <td><%= position.position %></td>
+          <td><%= position.points %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<% @points_for_positions.each do |position| %>
-  <p>
-    <strong><%= position.name %>:</strong>
-    <%= position.position %>
-    <strong>Points</strong>
-    <%= position.points %>
-  </p>
-<% end %>
 
 <%= link_to 'Edit', edit_score_system_path(@score_system) %> |
 <%= link_to 'Back', score_systems_path %>

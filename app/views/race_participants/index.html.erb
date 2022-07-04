@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class='col-md-6'>
+  <h1>Participantes de la carrera: <strong><%= @league_race.capitalized_name %></strong></h1>
+</div>
+
+<div class='col-md-8'>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id de jugador</th>
+        <th scope="col">Posición</th>
+        <th scope="col">Puntaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @race_participants.each do |race_participant| %>
+        <tr>
+          <td><%= race_participant.user.gamer_id %></td>
+          <td><%= race_participant.position.to_i > 20 ? 'DNF' : race_participant.position %></td>
+          <td><%= race_participant.score %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<a href="<%= league_races_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Volver a carreras de liga</a>

@@ -1,33 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>League Races</h1>
+<div class='col-md-6'>
+  <h1>Carreras de <strong><%= @league&.name %></strong></h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Race track</th>
-      <th>League</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @league_races.each do |league_race| %>
-      <tr>
-        <td><%= league_race.name %></td>
-        <td><%= league_race.description %></td>
-        <td><%= league_race.race_track_id %></td>
-        <td><%= league_race.league_id %></td>
-        <td><%= link_to 'Show', league_race %></td>
-        <td><%= link_to 'Edit', edit_league_race_path(league_race) %></td>
-        <td><%= link_to 'Destroy', league_race, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= link_to 'Crear nueva carrera', new_league_race_path(league_id: @league.id) %>
 <br>
+<% @league_races.each do |league_race| %>
+  <div class="card col-md-6 mt-2">
+    <div class="card-body">
+      <h4 class="card-title"><%= league_race.capitalized_name %></h4>
+      <p class="card-text">Descripción: <%= league_race.description %></p>
+      <p class="card-text">Pista: <strong><%= league_race.race_track.name %></strong></p>
+      <br>
+      <a href="<%= race_participants_path(league_race_id: league_race.id) %>" class="btn btn-dark">Ver tabla de resultados</a>
+    </div>
+  </div>
+<% end %>
 
-<%= link_to 'New League Race', new_league_race_path %>
