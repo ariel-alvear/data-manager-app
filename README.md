@@ -12,21 +12,20 @@ Usuarios podrán:
     # Gestionar Sistemas de Puntajes:
     - Se debe crear al menos un sistema de puntaje, que a su vez debe tener varias posiciones y puntos. (Esto nos permitirá facilitar cálculos y estadísticas en las ligas y eventos).
 
-    # Gestionar Ligas y sus Eventos:
+    # Gestionar Ligas y sus Carreras:
     - Ya se pueden crear Pistas de carreras, Temporadas de liga y Eventos de liga. Una temporada de liga debe tener un Sistema de puntuación asociado. Un Evento de liga debe estar asociado a una Temporada de liga y a una Pista de carrera.
+
+    # Gestionar Carreras y participantes
+    - Ya se pueden crear carreras incluyendo a los participantes de estas. Para esto, al momento de crear una carrera se pueden agregar los participantes con su respectiva posición. Luego de crear la carrera se redirigirá a una tabla de resultados con los participantes y sus puntajes y posiciones.
     
     ## Pendiente
-    - Se deben crear usuarios para inscribir en temporadas de liga y eventos
-    - Se deben crear las tablas de puntaje para liga y eventos.
+    - Se deben crear usuarios para inscribir en temporadas de liga.
+    - Se deben crear las tablas de puntaje para liga.
+    - Se debe permitir ordenar según columna la tabla de resultados de carreras.
+    - Gestionar Puntos Extras (Por detallar)
+    - Gestionar Sanciones (Por detallar)
 
 Versión 0.2
-
-Usuarios podrán:
-
-    Gestionar Puntos Extras (Por detallar)
-    Gestionar Sanciones (Por detallar)
-
-Versión 0.3
 
     Se creará estructura de permisos, comenzando por diferenciar Administrador, Participante y Externo. (Por detallar)
 
@@ -35,7 +34,7 @@ Versión 0.3
     Versiones 0.1 y 0.2 serán de exclusivo permiso de Administrador. (Por detallar)
     Versiones 0.1 y 0.2 solo otorgará permiso de vista a los Participantes y Externos. (Por detallar)
 
-Versión 0.3.1
+Versión 0.3
 
 Participantes podrán:
 
