@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      race_participant: 'Participante de carrera'
+    attributes:
+      race_participant:
+        user_id: 'Usuario'
+        status: 'Estado (titular o reserva)'
+        position: 'Posición'
+        score: 'Puntaje'

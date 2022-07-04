@@ -1,0 +1,9 @@
+es:
+  activerecord:
+    models:
+      race_track: 'Circuito de carrera'
+    attributes:
+      race_track:
+        name: 'Nombre'
+        description: 'Descripción'
+        country: 'País'

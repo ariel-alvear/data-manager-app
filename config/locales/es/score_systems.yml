@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      score_system: 'Sistema de puntaje'
+    attributes:
+      score_system:
+        name: 'Nombre'
+        description: 'Descripción'
