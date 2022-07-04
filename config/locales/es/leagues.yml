@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      league: 'Liga'
+    attributes:
+      league:
+        name: 'Nombre'
+        description: 'Descripción'

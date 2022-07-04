@@ -1,0 +1,9 @@
+es:
+  activerecord:
+    models:
+      points_for_position: 'Puntos por posición'
+    attributes:
+      points_for_position:
+        name: 'Nombre'
+        position: 'Posición'
+        points: 'Puntos'

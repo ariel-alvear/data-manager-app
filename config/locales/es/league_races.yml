@@ -1,0 +1,9 @@
+es:
+  activerecord:
+    models:
+      league_race: 'Carrera de liga'
+    attributes:
+      league_race:
+        name: 'Nombre'
+        description: 'Descripción'
+        race_track: 'Circuito de carrera'
