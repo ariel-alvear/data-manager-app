@@ -4,7 +4,7 @@ class RaceParticipantsController < ApplicationController
   # GET /race_participants or /race_participants.json
   def index
     @league_race = LeagueRace.find(params["league_race_id"])
-    @race_participants = RaceParticipant.from_league_race(@league_race.id)
+    @race_participants = RaceParticipant.from_league_race(@league_race.id).order('score DESC, position')
   end
 
   # GET /race_participants/1 or /race_participants/1.json
