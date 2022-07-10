@@ -6,22 +6,22 @@ class LeagueRacesController < ApplicationController
     @league = League.find(params["league_id"])
     @league_races = LeagueRace.from_league(@league.id)
   end
-
+  
   # GET /league_races/1 or /league_races/1.json
   def show
   end
-
+  
   # GET /league_races/new
   def new
     @league = League.find(params["league_id"])
     @league_race = LeagueRace.new
     @positions_for_select = PointsForPosition.from_score_system(@league.score_system.id)
   end
-
+  
   # GET /league_races/1/edit
   def edit
   end
-
+  
   # POST /league_races or /league_races.json
   def create
     @league_race = LeagueRace.new(league_race_params)
@@ -33,9 +33,10 @@ class LeagueRacesController < ApplicationController
         participant.score = @points_for_position.find_by(position: participant.position).points
       end
     end
-
+    
     respond_to do |format|
       if @league_race.save
+        UpdateLeagueParticipantScore.new(@league_race).execute
         format.html { redirect_to race_participants_path(league_race_id: @league_race.id), notice: "Carrera creada correctamente" }
         format.json { render :show, status: :created, location: @league_race }
       else

@@ -15,6 +15,7 @@
     </thead>
     <tbody>
       <% @race_participants.each do |race_participant| %>
+        <% i = 1 %>
         <tr>
           <td><%= race_participant.user.gamer_id %></td>
           <td><%= race_participant.position.to_i > 20 ? 'DNF' : race_participant.position %></td>
@@ -26,3 +27,4 @@
 </div>
 
 <a href="<%= league_races_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Volver a carreras de liga</a>
+<a href="<%= league_participants_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Ir a tabla general de la liga</a>
