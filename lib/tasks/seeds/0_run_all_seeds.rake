@@ -9,6 +9,7 @@ namespace :seed do
                           :leagues,
                           :league_races,
                           :race_participants,
+                          :league_participants,
                           ] do
     p 'Seed process terminated'
   end
