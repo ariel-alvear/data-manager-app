@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_02_003122) do
+ActiveRecord::Schema.define(version: 2022_07_10_172431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "league_participants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "status"
+    t.integer "position"
+    t.integer "score"
+    t.bigint "league_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["league_id"], name: "index_league_participants_on_league_id"
+    t.index ["user_id"], name: "index_league_participants_on_user_id"
+  end
 
   create_table "league_races", force: :cascade do |t|
     t.string "name"
@@ -87,6 +99,8 @@ ActiveRecord::Schema.define(version: 2022_07_02_003122) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "league_participants", "leagues"
+  add_foreign_key "league_participants", "users"
   add_foreign_key "league_races", "leagues"
   add_foreign_key "league_races", "race_tracks"
   add_foreign_key "leagues", "score_systems"

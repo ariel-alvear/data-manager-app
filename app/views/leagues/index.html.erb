@@ -2,6 +2,8 @@
 
 <h1>Temporadas de liga</h1>
 
+<%= link_to 'Crear nueva temporada de liga', new_league_path %>
+
 <% @leagues.each do |league| %>
   <div class="card col-md-4 mt-2">
     <div class="card-body">
@@ -17,5 +19,3 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to 'Crear nueva temporada de liga', new_league_path %>

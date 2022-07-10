@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      league_participant: 'Participante de liga'
+    attributes:
+      league_participant:
+        user_id: 'Participante'
+        description: 'Descripción'

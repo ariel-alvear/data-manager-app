@@ -79,6 +79,20 @@ class LeagueRacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def league_race_params
-      params.require(:league_race).permit(:name, :description, :race_track_id, :league_id, race_participants_attributes: [:id, :user_id, :race_league_id, :position, :score, :status, :_destroy])
+      params.require(:league_race)
+            .permit(
+                    :name,
+                    :description,
+                    :race_track_id,
+                    :league_id,
+                    race_participants_attributes: [
+                                                    :id,
+                                                    :user_id,
+                                                    :race_league_id,
+                                                    :position,
+                                                    :score,
+                                                    :status,
+                                                    :_destroy]
+                    )
     end
 end
