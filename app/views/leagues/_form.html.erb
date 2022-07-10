@@ -13,6 +13,14 @@
     <%= f.association :score_system, as: :radio_buttons, label: 'Sistema de puntaje' %>
   </div>
   <br>
+  <h4>Participantes</h4>
+  <%= f.fields_for :league_participants do |league_participant| %>
+    <%= render 'league_participant_fields', f: league_participant %>
+  <% end %>
+
+  <div class="link">
+    <%= link_to_add_association "Agregar otro participante", f, :league_participants %>
+  </div>
   <div class="form-actions">
     <%= f.button :submit, 'Crear nueva temporada', class: "btn btn-primary" %>
   </div>

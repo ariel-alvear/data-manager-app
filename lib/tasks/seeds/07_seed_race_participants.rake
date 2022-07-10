@@ -44,6 +44,27 @@ namespace :seed do
         position: 2,
         score: 18,
         league_race_id: 2,
+      },
+      {
+        user_id: 1,
+        status: 0,
+        position: 3,
+        score: 15,
+        league_race_id: 3,
+      },
+      {
+        user_id: 2,
+        status: 0,
+        position: 1,
+        score: 25,
+        league_race_id: 3,
+      },
+      {
+        user_id: 3,
+        status: 0,
+        position: 2,
+        score: 18,
+        league_race_id: 3,
       }
       ])
 
