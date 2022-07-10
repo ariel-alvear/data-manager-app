@@ -36,7 +36,8 @@ class LeagueRacesController < ApplicationController
     
     respond_to do |format|
       if @league_race.save
-        UpdateLeagueParticipantScore.new(@league_race).execute
+        UpdateLeagueParticipantScore.call(@league_race)
+        UpdateLeagueParticipantPosition.call(@league_race)
         format.html { redirect_to race_participants_path(league_race_id: @league_race.id), notice: "Carrera creada correctamente" }
         format.json { render :show, status: :created, location: @league_race }
       else

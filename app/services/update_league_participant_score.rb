@@ -1,10 +1,9 @@
-class UpdateLeagueParticipantScore
+class UpdateLeagueParticipantScore < ApplicationService
   def initialize(league_race)
     @league_race = league_race
-    # @league_participants = LeagueParticipant.where(league_id: @league_race.league_id)
   end
 
-  def execute
+  def call
     @league_race.race_participants.each do |race_participant|
       league_participant = LeagueParticipant.where(user_id: race_participant.user_id)
                                             .where(league_id: @league_race.league_id)
