@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bonus Points</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Points</th>
+      <th>League race</th>
+      <th>Race participant</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bonus_points.each do |bonus_point| %>
+      <tr>
+        <td><%= bonus_point.description %></td>
+        <td><%= bonus_point.points %></td>
+        <td><%= bonus_point.league_race_id %></td>
+        <td><%= bonus_point.race_participant_id %></td>
+        <td><%= link_to 'Show', bonus_point %></td>
+        <td><%= link_to 'Edit', edit_bonus_point_path(bonus_point) %></td>
+        <td><%= link_to 'Destroy', bonus_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bonus Point', new_bonus_point_path %>

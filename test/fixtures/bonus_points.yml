@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  points: 1
+  league_race: one
+  race_participant: one
+
+two:
+  description: MyText
+  points: 1
+  league_race: two
+  race_participant: two

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bonus_point.description %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @bonus_point.points %>
+</p>
+
+<p>
+  <strong>League race:</strong>
+  <%= @bonus_point.league_race_id %>
+</p>
+
+<p>
+  <strong>Race participant:</strong>
+  <%= @bonus_point.race_participant_id %>
+</p>
+
+<%= link_to 'Edit', edit_bonus_point_path(@bonus_point) %> |
+<%= link_to 'Back', bonus_points_path %>

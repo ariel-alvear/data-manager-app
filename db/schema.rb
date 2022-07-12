@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_10_172431) do
+ActiveRecord::Schema.define(version: 2022_07_12_225625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bonus_points", force: :cascade do |t|
+    t.text "description"
+    t.integer "points"
+    t.bigint "league_race_id", null: false
+    t.bigint "race_participant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["league_race_id"], name: "index_bonus_points_on_league_race_id"
+    t.index ["race_participant_id"], name: "index_bonus_points_on_race_participant_id"
+  end
 
   create_table "league_participants", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -77,6 +88,18 @@ ActiveRecord::Schema.define(version: 2022_07_10_172431) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sanctions", force: :cascade do |t|
+    t.text "description"
+    t.string "video_url"
+    t.bigint "league_race_id", null: false
+    t.bigint "race_participant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "penalized_points"
+    t.index ["league_race_id"], name: "index_sanctions_on_league_race_id"
+    t.index ["race_participant_id"], name: "index_sanctions_on_race_participant_id"
+  end
+
   create_table "score_systems", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -99,6 +122,8 @@ ActiveRecord::Schema.define(version: 2022_07_10_172431) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bonus_points", "league_races"
+  add_foreign_key "bonus_points", "race_participants"
   add_foreign_key "league_participants", "leagues"
   add_foreign_key "league_participants", "users"
   add_foreign_key "league_races", "leagues"
@@ -107,4 +132,6 @@ ActiveRecord::Schema.define(version: 2022_07_10_172431) do
   add_foreign_key "points_for_positions", "score_systems"
   add_foreign_key "race_participants", "league_races"
   add_foreign_key "race_participants", "users"
+  add_foreign_key "sanctions", "league_races"
+  add_foreign_key "sanctions", "race_participants"
 end
