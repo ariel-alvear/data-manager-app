@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <div class="field">
+    <div class="col-md-6">
+      <%= f.input :user_id, collection: User.order(:gamer_id),
+                                  prompt: 'Seleccione un usuario',
+                                  input_html: { class: 'form-control d-inline-block' } %>
+      <br>
+      <%= link_to_remove_association "Remover participante", f %>
+    </div>
+  </div>
+</div>

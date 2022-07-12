@@ -3,7 +3,7 @@ class LeaguesController < ApplicationController
 
   # GET /leagues or /leagues.json
   def index
-    @leagues = League.all
+    @leagues = League.all.order(created_at: :desc)
   end
 
   # GET /leagues/1 or /leagues/1.json
@@ -25,7 +25,7 @@ class LeaguesController < ApplicationController
 
     respond_to do |format|
       if @league.save
-        format.html { redirect_to league_url(@league), notice: "League was successfully created." }
+        format.html { redirect_to league_participants_path(league_id: @league.id), notice: "Temporada creada correctamente" }
         format.json { render :show, status: :created, location: @league }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +65,18 @@ class LeaguesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def league_params
-      params.require(:league).permit(:name, :description, :score_system_id)
-    end
+      params.require(:league)
+            .permit(:name,
+                    :description,
+                    :score_system_id,
+                    league_participants_attributes: [
+                                                      :id, 
+                                                      :user_id, 
+                                                      :league_id,
+                                                      :position,
+                                                      :score, 
+                                                      :status,
+                                                      :_destroy,
+                                                    ])
+    end 
 end
