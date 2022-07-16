@@ -28,6 +28,8 @@ class SanctionsController < ApplicationController
 
     respond_to do |format|
       if @sanction.save
+        UpdateLeagueParticipantScore.call(@league_race)
+        UpdateLeagueParticipantPosition.call(@league_race)
         format.html { redirect_to sanctions_path(league_race_id: @league_race.id), notice: "Sanción creada correctamente" }
         format.json { render :show, status: :created, location: @sanction }
       else

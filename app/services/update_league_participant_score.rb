@@ -5,13 +5,26 @@ class UpdateLeagueParticipantScore < ApplicationService
 
   def call
     @league_race.race_participants.each do |race_participant|
-      league_participant = LeagueParticipant.where(user_id: race_participant.user_id)
+      # Buscamos el participante de liga asociado al usuario.
+      user_league_participant = LeagueParticipant.where(user_id: race_participant.user_id)
                                             .where(league_id: @league_race.league_id)
-      if league_participant[0].score.nil?
-        league_participant[0].update(score: race_participant.score)
-      else
-        league_participant[0].update(score: (league_participant[0].score += race_participant.score))
+
+      # Retorna un arreglo con las participaciones de carrera dentro de una liga
+      user_race_participants = RaceParticipant.includes(:league_race)
+                                                    .where(user_id: user_league_participant[0].user_id)
+                                                    .where(league_race: { league_id: user_league_participant[0].league_id })
+
+      # Traemos puntaje preliminar (suma de los puntos de participación)                                              
+      user_league_preliminary_score = user_race_participants.pluck(:score).compact.sum
+
+      # Traemos los puntos de penalización
+      user_sanctions_points = []
+      user_race_participants.includes(:sanctions).each do |participant|
+        user_sanctions_points << participant.sanctions.pluck(:penalized_points) if participant.sanctions.present?
       end
+
+      # actualizamos puntaje de liga con la suma de puntos de carrera, restando la suma de puntos de penalización
+      user_league_participant[0].update(score: (user_league_preliminary_score - user_sanctions_points.flatten.sum))
     end
   end
 end

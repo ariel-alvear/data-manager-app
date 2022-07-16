@@ -17,12 +17,11 @@
     </thead>
     <tbody>
       <% @race_participants.each do |race_participant| %>
-        <% i = 1 %>
         <tr>
           <td><%= race_participant.user.gamer_id %></td>
           <td><%= race_participant.position.to_i > 20 ? 'DNF' : race_participant.position %></td>
           <td><%= race_participant.score %></td>
-          <td><%= race_participant.sanction_points %></td>
+          <td>-<%= race_participant.sanction_points %></td>
           <td><%= race_participant.total_race_points %></td>
         </tr>
       <% end %>
