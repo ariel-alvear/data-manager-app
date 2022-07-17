@@ -68,3 +68,4 @@ Para montar la app se debe:
 3) Crear datos para probar la aplicación `rails seed:run_all_seeds`, correr este comando hasta que ya no se creen nuevos datos.
 4) Levantar el servidor `rails s`
 5) Ingresar con cualquier usuario del archivo `lib/tasks/seeds/04_seed_users.rake`
+6) El ambiente actual de prueba es https://f1-chile-data-manager-staging.herokuapp.com/
