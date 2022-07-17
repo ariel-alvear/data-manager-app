@@ -1,33 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bonus Points</h1>
+<div class='col-md-6'>
+  <h1>Puntos extra de la carrera: <strong><%= @league_race.capitalized_name %></strong></h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Points</th>
-      <th>League race</th>
-      <th>Race participant</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= link_to 'Agregar punto extra', new_bonus_point_path(league_race_id: @league_race.id) %>
 
-  <tbody>
-    <% @bonus_points.each do |bonus_point| %>
+<div class='col-md-8'>
+  <table class="table">
+    <thead class="thead-dark">
       <tr>
-        <td><%= bonus_point.description %></td>
-        <td><%= bonus_point.points %></td>
-        <td><%= bonus_point.league_race_id %></td>
-        <td><%= bonus_point.race_participant_id %></td>
-        <td><%= link_to 'Show', bonus_point %></td>
-        <td><%= link_to 'Edit', edit_bonus_point_path(bonus_point) %></td>
-        <td><%= link_to 'Destroy', bonus_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">Id de jugador</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Puntos extra</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @bonus_points.each do |bonus_point| %>
+        <tr>
+          <td><%= bonus_point.race_participant.user.gamer_id %></td>
+          <td><%= bonus_point.description %></td>
+          <td><%= bonus_point.points %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<br>
-
-<%= link_to 'New Bonus Point', new_bonus_point_path %>
+<a href="<%= race_participants_path(league_race_id: @league_race.id) %>" class="btn btn-dark">Ver tabla de resultados de carrera</a>
+<a href="<%= league_races_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Volver a carreras de liga</a>
+<a href="<%= league_participants_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Ir a tabla general de la liga</a>

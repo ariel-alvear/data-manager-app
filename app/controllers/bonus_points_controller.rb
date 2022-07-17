@@ -24,10 +24,13 @@ class BonusPointsController < ApplicationController
   # POST /bonus_points or /bonus_points.json
   def create
     @bonus_point = BonusPoint.new(bonus_point_params)
+    @league_race = LeagueRace.find(params.dig(:bonus_point, :league_race_id))
 
     respond_to do |format|
       if @bonus_point.save
-        format.html { redirect_to bonus_point_url(@bonus_point), notice: "Bonus point was successfully created." }
+        UpdateLeagueParticipantScore.call(@league_race)
+        UpdateLeagueParticipantPosition.call(@league_race)
+        format.html { redirect_to bonus_points_path(league_race_id: @league_race.id), notice: "Punto extra agregado correctamente" }
         format.json { render :show, status: :created, location: @bonus_point }
       else
         format.html { render :new, status: :unprocessable_entity }

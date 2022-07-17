@@ -1,5 +1,7 @@
-<h1>New Bonus Point</h1>
+<div class='col-md-6'>
+  <h1>Nueva punto extra en <strong><%= @league_race.capitalized_name %></strong></h1>
+</div>
 
 <%= render 'form', bonus_point: @bonus_point %>
 
-<%= link_to 'Back', bonus_points_path %>
+<%= link_to 'Volver a puntos extras de carrera', bonus_points_path(league_race_id: @league_race.id) %>

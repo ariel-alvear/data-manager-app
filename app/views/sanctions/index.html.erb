@@ -18,7 +18,6 @@
     </thead>
     <tbody>
       <% @sanctions.each do |sanction| %>
-        <% i = 1 %>
         <tr>
           <td><%= sanction.race_participant.user.gamer_id %></td>
           <td><%= sanction.description %></td>

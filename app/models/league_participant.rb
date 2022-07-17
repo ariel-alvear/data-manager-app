@@ -24,4 +24,15 @@ class LeagueParticipant < ApplicationRecord
                    .compact
                    .sum
   end
+
+  def bonus_points
+    points = []
+    RaceParticipant.includes(:bonus_points, :league_race)
+                   .where(league_race: { league_id: self.league_id })
+                   .where(user_id: self.user_id)
+                   .each do |race_participant|
+                    points << race_participant.bonus_points.pluck(:points) if race_participant.bonus_points.present?
+                  end
+    points.flatten.compact.sum
+  end
 end

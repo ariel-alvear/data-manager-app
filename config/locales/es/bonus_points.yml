@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      bonus_point: 'Punto extra'
+    attributes:
+      bonus_point:
+        description: 'Descripción'
+        league_race_id: 'Carrera de liga'
+        race_participant: 'Piloto bonificado'
+        points: 'Puntos de bonificación'

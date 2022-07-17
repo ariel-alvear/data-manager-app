@@ -23,8 +23,14 @@ class UpdateLeagueParticipantScore < ApplicationService
         user_sanctions_points << participant.sanctions.pluck(:penalized_points) if participant.sanctions.present?
       end
 
+      # Traemos los puntos extra
+      user_league_bonus_points = []
+      user_race_participants.includes(:bonus_points).each do |participant|
+        user_league_bonus_points << participant.bonus_points.pluck(:points) if participant.bonus_points.present?
+      end
+
       # actualizamos puntaje de liga con la suma de puntos de carrera, restando la suma de puntos de penalización
-      user_league_participant[0].update(score: (user_league_preliminary_score - user_sanctions_points.flatten.sum))
+      user_league_participant[0].update(score: ((user_league_preliminary_score - user_sanctions_points.flatten.sum) + user_league_bonus_points.flatten.sum))
     end
   end
 end
