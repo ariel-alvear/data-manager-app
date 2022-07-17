@@ -10,7 +10,7 @@
     <%= f.association :race_track, collection: RaceTrack.order(:name),
                                    prompt: 'Seleccione una pista',
                                    input_html: { class: 'form-control mb-2' } %>
-    <%= hidden_field_tag(:score_system_id, @positions_for_select[0].score_system_id) %>
+    <%= f.association :score_system, as: :radio_buttons, label: 'Sistema de puntaje' %>
     <br>
     <h4>Participantes</h4>
     <%= f.fields_for :race_participants do |race_participant| %>

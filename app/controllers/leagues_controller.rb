@@ -68,7 +68,6 @@ class LeaguesController < ApplicationController
       params.require(:league)
             .permit(:name,
                     :description,
-                    :score_system_id,
                     league_participants_attributes: [
                                                       :id, 
                                                       :user_id, 

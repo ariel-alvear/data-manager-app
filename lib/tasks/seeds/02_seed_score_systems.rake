@@ -6,7 +6,12 @@ namespace :seed do
       ScoreSystem.create!([{
         name: 'Formula 1',
         description: 'Sistema de puntucación de la fórmula 1 actual',
-      }])
+      },
+      {
+        name: 'Sprint F1',
+        description: 'Sistema de puntucación de Sprint de la fórmula 1 actual',
+      },
+      ])
 
       p "Created #{RaceTrack.count} score systems"
     else

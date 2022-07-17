@@ -12,6 +12,7 @@
       <h4 class="card-title"><%= league_race.capitalized_name %></h4>
       <p class="card-text">Descripción: <%= league_race.description %></p>
       <p class="card-text">Pista: <strong><%= league_race.race_track.name %></strong></p>
+      <a href="<%= score_system_path(league_race.score_system_id)%>">Sistema de puntaje</a>
       <br>
       <a href="<%= race_participants_path(league_race_id: league_race.id) %>" class="btn btn-dark">Ver tabla de resultados</a>
       <a href="<%= sanctions_path(league_race_id: league_race.id) %>" class="btn btn-dark">Ver sanciones</a>
