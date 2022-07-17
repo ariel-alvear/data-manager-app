@@ -4,7 +4,7 @@
       <%= f.input :user_id, collection: User.from_this_league(@league.id).order(:gamer_id),
                                   prompt: 'Seleccione un usuario',
                                   input_html: { class: 'form-control d-inline-block' } %>
-      <%= f.input :position, collection: @positions_for_select.order(:position),
+      <%= f.input :position, collection: f1_race_positions,
                                   prompt: 'Seleccione una posición',
                                   input_html: { class: 'form-control mb-2 d-inline-block' } %>
       <%= f.input :score, as: :hidden %>

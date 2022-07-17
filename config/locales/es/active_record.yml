@@ -1,0 +1,5 @@
+es:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Registro inválido (probablemente algo en el modelo impide crearlo'

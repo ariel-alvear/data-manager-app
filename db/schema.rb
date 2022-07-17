@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_12_225625) do
+ActiveRecord::Schema.define(version: 2022_07_17_194527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_07_12_225625) do
     t.bigint "league_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "score_system_id"
     t.index ["league_id"], name: "index_league_races_on_league_id"
     t.index ["race_track_id"], name: "index_league_races_on_race_track_id"
   end
@@ -52,10 +53,8 @@ ActiveRecord::Schema.define(version: 2022_07_12_225625) do
   create_table "leagues", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.bigint "score_system_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["score_system_id"], name: "index_leagues_on_score_system_id"
   end
 
   create_table "points_for_positions", force: :cascade do |t|
@@ -128,7 +127,7 @@ ActiveRecord::Schema.define(version: 2022_07_12_225625) do
   add_foreign_key "league_participants", "users"
   add_foreign_key "league_races", "leagues"
   add_foreign_key "league_races", "race_tracks"
-  add_foreign_key "leagues", "score_systems"
+  add_foreign_key "league_races", "score_systems"
   add_foreign_key "points_for_positions", "score_systems"
   add_foreign_key "race_participants", "league_races"
   add_foreign_key "race_participants", "users"
