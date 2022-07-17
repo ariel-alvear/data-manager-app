@@ -1,0 +1,7 @@
+<div class='col-md-6'>
+  <h1>Nueva sanción en <strong><%= @league_race.capitalized_name %></strong></h1>
+</div>
+
+<%= render 'form', sanction: @sanction %>
+
+<%= link_to 'Volver a sanciones de carrera', sanctions_path(league_race_id: @league_race.id) %>

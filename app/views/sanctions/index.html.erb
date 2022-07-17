@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class='col-md-6'>
+  <h1>Sanciones de la carrera: <strong><%= @league_race.capitalized_name %></strong></h1>
+</div>
+
+<%= link_to 'Crear nueva sanción', new_sanction_path(league_race_id: @league_race.id) %>
+
+<div class='col-md-8'>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id de jugador</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Puntos de penalización</th>
+        <th scope="col">Url de video</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sanctions.each do |sanction| %>
+        <tr>
+          <td><%= sanction.race_participant.user.gamer_id %></td>
+          <td><%= sanction.description %></td>
+          <td>-<%= sanction.penalized_points %></td>
+          <td><%= sanction.video_url %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<a href="<%= race_participants_path(league_race_id: @league_race.id) %>" class="btn btn-dark">Ver tabla de resultados de carrera</a>
+<a href="<%= league_races_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Volver a carreras de liga</a>
+<a href="<%= league_participants_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Ir a tabla general de la liga</a>
+

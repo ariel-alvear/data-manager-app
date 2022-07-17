@@ -10,14 +10,20 @@
       <tr>
         <th scope="col">Id de jugador</th>
         <th scope="col">Posición</th>
-        <th scope="col">Puntaje</th>
+        <th scope="col">Puntaje preliminar</th>
+        <th scope="col">Puntos de penalización</th>
+        <th scope="col">Puntos de bonificación</th>
+        <th scope="col">Puntaje final</th>
       </tr>
     </thead>
     <tbody>
       <% @league_participants.each do |league_participant| %>
         <tr>
           <td><%= league_participant.user.gamer_id %></td>
-          <td><%= league_participant.position.to_i > 20 ? 'DNF' : league_participant.position %></td>
+          <td><%= league_participant.position %></td>
+          <td><%= league_participant.preliminary_score %></td>
+          <td>-<%= league_participant.sanction_points %></td>
+          <td><%= league_participant.bonus_points %></td>
           <td><%= league_participant.score %></td>
         </tr>
       <% end %>

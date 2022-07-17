@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sanction.description %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @sanction.video_url %>
+</p>
+
+<p>
+  <strong>League race:</strong>
+  <%= @sanction.league_race_id %>
+</p>
+
+<p>
+  <strong>Race participant:</strong>
+  <%= @sanction.race_participant_id %>
+</p>
+
+<%= link_to 'Edit', edit_sanction_path(@sanction) %> |
+<%= link_to 'Back', sanctions_path %>

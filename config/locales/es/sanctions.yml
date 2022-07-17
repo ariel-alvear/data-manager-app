@@ -1,0 +1,11 @@
+es:
+  activerecord:
+    models:
+      sanction: 'Sanción'
+    attributes:
+      sanction:
+        description: 'Descripción'
+        video_url: 'Link de video'
+        league_race_id: 'Carrera de liga'
+        race_participant: 'Piloto penalizado'
+        penalized_points: 'Puntos de penalización'

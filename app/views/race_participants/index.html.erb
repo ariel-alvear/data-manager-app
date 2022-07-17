@@ -4,22 +4,25 @@
   <h1>Participantes de la carrera: <strong><%= @league_race.capitalized_name %></strong></h1>
 </div>
 
-<div class='col-md-8'>
+<div class='col-md-7'>
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Id de jugador</th>
         <th scope="col">Posición</th>
-        <th scope="col">Puntaje</th>
+        <th scope="col">Puntaje preliminar</th>
+        <th scope="col">Puntos de penalización</th>
+        <th scope="col">Puntaje final</th>
       </tr>
     </thead>
     <tbody>
       <% @race_participants.each do |race_participant| %>
-        <% i = 1 %>
         <tr>
           <td><%= race_participant.user.gamer_id %></td>
           <td><%= race_participant.position.to_i > 20 ? 'DNF' : race_participant.position %></td>
           <td><%= race_participant.score %></td>
+          <td>-<%= race_participant.sanction_points %></td>
+          <td><%= race_participant.total_race_points %></td>
         </tr>
       <% end %>
     </tbody>
@@ -28,3 +31,4 @@
 
 <a href="<%= league_races_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Volver a carreras de liga</a>
 <a href="<%= league_participants_path(league_id: @league_race.league_id) %>" class="btn btn-dark">Ir a tabla general de la liga</a>
+<a href="<%= sanctions_path(league_race_id: @league_race.id) %>" class="btn btn-dark">Ver sanciones</a>

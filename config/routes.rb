@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bonus_points
+  resources :sanctions
   resources :league_participants
   resources :race_participants
   devise_for :users

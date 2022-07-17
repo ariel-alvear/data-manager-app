@@ -14,12 +14,22 @@ namespace :seed do
         league_id: 1,
       },
       {
+        user_id: 3,
+        status: 0,
+        league_id: 1,
+      },
+      {
         user_id: 1,
         status: 0,
         league_id: 2,
       },
       {
         user_id: 2,
+        status: 0,
+        league_id: 2,
+      },
+      {
+        user_id: 3,
         status: 0,
         league_id: 2,
       },
