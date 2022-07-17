@@ -18,12 +18,11 @@ Usuarios podrán:
     # Gestionar Carreras y participantes
     - Ya se pueden crear carreras incluyendo a los participantes de estas. Para esto, al momento de crear una carrera se pueden agregar los participantes con su respectiva posición. Luego de crear la carrera se redirigirá a una tabla de resultados con los participantes y sus puntajes y posiciones.
     
+    # Gestionar puntos extras y sanciones
+    - En la app se pueden otorgar puntos de bonificación (puntos que se suman) a un participante, o crear puntos de penalización (puntos que se restan a un participante) según el criterio de los administradores.
+
     ## Pendiente
     - Se deben crear usuarios para inscribir en temporadas de liga.
-    - Se deben crear las tablas de puntaje para liga.
-    - Se debe permitir ordenar según columna la tabla de resultados de carreras.
-    - Gestionar Puntos Extras (Por detallar)
-    - Gestionar Sanciones (Por detallar)
 
 Versión 0.2
 
