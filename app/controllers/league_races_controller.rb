@@ -15,7 +15,6 @@ class LeagueRacesController < ApplicationController
   def new
     @league = League.find(params["league_id"])
     @league_race = LeagueRace.new
-    @positions_for_select = PointsForPosition.from_score_system(@league.score_system.id)
   end
   
   # GET /league_races/1/edit
@@ -25,12 +24,12 @@ class LeagueRacesController < ApplicationController
   # POST /league_races or /league_races.json
   def create
     @league_race = LeagueRace.new(league_race_params)
-    @points_for_position = PointsForPosition.from_score_system(params[:score_system_id].to_i)
+    @points_for_position = PointsForPosition.where(score_system_id: (params.dig(:league_race, :score_system_id).to_i))
     @league_race.race_participants.each do |participant|
       if participant.position.to_i > 20
         participant.score = 0
       else
-        participant.score = @points_for_position.find_by(position: participant.position).points
+        participant.score = @points_for_position.find_by(position: participant.position.to_i).points
       end
     end
     
@@ -41,7 +40,7 @@ class LeagueRacesController < ApplicationController
         format.html { redirect_to race_participants_path(league_race_id: @league_race.id), notice: "Carrera creada correctamente" }
         format.json { render :show, status: :created, location: @league_race }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to race_participants_path(league_race_id: @league_race.id), notice: "No se creó la carrera" }
         format.json { render json: @league_race.errors, status: :unprocessable_entity }
       end
     end
@@ -87,6 +86,7 @@ class LeagueRacesController < ApplicationController
                     :description,
                     :race_track_id,
                     :league_id,
+                    :score_system_id,
                     race_participants_attributes: [
                                                     :id,
                                                     :user_id,
